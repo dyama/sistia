@@ -1,45 +1,55 @@
+#!/usr/bin/env ruby
+## -*- mode:ruby; coding:utf-8 -*-
 
-$kl = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ]
+require './common.rb'
+require './world.rb'
+require './charactor.rb'
 
-def menu(nest, usecancel, item)
-  if $kl.size < item.size
-    throw
+# メインルーチンが消えた
+# 移動ルーチンが消えた
+# 戦闘ルーチンが消えた
+# ステータス表示ルーチンが消えた
+
+# 移動
+def move(id)
+  map = getmap(id)
+  ar = Array.new
+  if map['east'] != nil  then ar.push('東') end
+  if map['west'] != nil  then ar.push('西') end
+  if map['south'] != nil then ar.push('南') end
+  if map['north'] != nil then ar.push('北') end
+  val = menu(1, true, ar)
+  res = 0;
+  case val
+  when '東' then res = map['east']
+  when '西' then res = map['west']
+  when '南' then res = map['south']
+  when '北' then res = map['north']
+  else return id
   end
-  val = ""
-  until $kl.index(val)
-    i = 0
-    item.each do |n|
-      print "" + $kl[i].upcase + ":" + n + "  "
-      i = i + 1
-    end
-    if usecancel
-      print "Q:戻る"
-    end
-    print "\n" + ">" * (nest+1) + " "
-    val = gets.chomp
-    val.downcase!
-    if usecancel && val == 'q'
-      return nil
-    end
-  end
-  item[$kl.index(val)]
+  print map['name']+"に移動しました。\n"
+  return res
 end
 
-def event
-  scn = [
-    "むかしむかしあるところに、お爺さんとお婆さんが住んでいました。",
-    "ある日、お爺さんは山に芝刈りに、お婆さんは川へ洗濯に行きました。",
-    "お婆さんが川で洗濯をしていると・・・",
-  ]
-  print "\e[36;1m"
-  scn.each do |msg|
-    msg.each_char do |c|
-      print c
-      sleep 0.1
+# メイン
+def main
+
+  player = Charactor.new
+
+  while true
+    val = menu(0, true, ["移動", "bar", "baz"])
+    case val
+    when "移動" then
+      player.map = move(player.map)
+    when "bar" then
+      print val+"\n"
+    when "baz" then
+      print val+"\n"
+    else
+      break
     end
-    print ">"
-    gets
   end
-  print "\e[0m"
+
 end
 
+main
