@@ -19,34 +19,50 @@ def move(id)
   if map['south'] != nil then ar.push('南') end
   if map['north'] != nil then ar.push('北') end
   val = menu(1, true, ar)
-  res = 0;
   case val
-  when '東' then res = map['east']
-  when '西' then res = map['west']
-  when '南' then res = map['south']
-  when '北' then res = map['north']
+  when '東' then return map['east']
+  when '西' then return map['west']
+  when '南' then return map['south']
+  when '北' then return map['north']
   else return id
   end
-  print map['name']+"に移動しました。\n"
-  return res
+end
+
+# キャラクターのステータスを表示
+def show_status(char)
+  map = getmap(char.map)["name"]
+  print "【" + char.name + "】"
+  print " Lv:" + char.lv.to_s
+  print " HP:" + char.hp.to_s+"/"+char.maxhp.to_s
+  print " SP:" + char.sp.to_s+"/"+char.maxsp.to_s
+  print " " + map
+  print "\n"
 end
 
 # メイン
 def main
 
   player = Charactor.new
+  player.name = "太郎"
+
+  menuitem = ["移動", "スキル", "アイテム", "装備"]
 
   while true
-    val = menu(0, true, ["移動", "bar", "baz"])
+    show_status(player)
+    val = menu(0, true, menuitem)
     case val
-    when "移動" then
-      player.map = move(player.map)
-    when "bar" then
-      print val+"\n"
-    when "baz" then
-      print val+"\n"
+    when "移動"
+      map = move(player.map)
+      if map != player.map
+        player.map = map
+        print getmap(map)['name']+"に移動しました。\n"
+      end
     else
-      break
+      if val != nil 
+        print val + "\n"
+      else
+        break
+      end
     end
   end
 

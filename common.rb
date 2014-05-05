@@ -21,7 +21,7 @@ def menu(nest, usecancel, item)
       i = i + 1
     end
     if usecancel
-      print "Q:戻る"
+      print "Q:キャンセル"
     end
     print "\n" + ">" * (nest+1) + " "
     val = gets.chomp
