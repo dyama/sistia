@@ -1,0 +1,8 @@
+[
+  { "id" : 1, "north" : null, "south" : null, "west" : null, "east" :    2, "name" : "西の湿原"   },
+  { "id" : 2, "north" : null, "south" : null, "west" :    1, "east" :    3, "name" : "小さな森"   },
+  { "id" : 3, "north" :    4, "south" :    5, "west" :    2, "east" : null, "name" : "野道"       },
+  { "id" : 4, "north" :    6, "south" :    3, "west" : null, "east" : null, "name" : "静かな草原" },
+  { "id" : 5, "north" :    3, "south" : null, "west" : null, "east" : null, "name" : "池のほとり" },
+  { "id" : 6, "north" : null, "south" :    4, "west" : null, "east" : null, "name" : "廃村の入口" }
+]
