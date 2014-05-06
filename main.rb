@@ -39,13 +39,69 @@ def show_status(char)
   print "\n"
 end
 
+def battle(player)
+
+  mob = Charactor.new
+  mob.name = "スライム"
+
+  print mob.name + "があらわれた！\n"
+
+  menuitem = ["攻撃", "防御", "スキル", "アイテム", "逃げる"]
+
+  while mob.hp > 0 && player.hp > 0
+    show_status(player)
+    # プレイヤーフェイズ
+    val = menu(1, false, menuitem)
+    case val
+    when "攻撃"
+      print player.name + "の攻撃！..."
+      pw = player.atack(mob)
+      if pw > 0
+        print "\a"
+        if pw > player.str
+          print "かいしんのいちげき！"
+        end
+        print mob.name + "に" + pw.to_s + "のダメージ！\n"
+        mob.hp -= pw
+      else
+        print "ミス！\n"
+      end
+    when "逃げる"
+      return
+    else
+    end
+
+    # エネミーフェイズ
+    print mob.name + "の攻撃！..."
+    pw = mob.atack(player)
+    if pw > 0
+      print "\a"
+      if pw > mob.str
+        print "かいしんのいちげき！"
+      end
+      print player.name + "に" + pw.to_s + "のダメージ！\n"
+      player.hp -= pw
+    else
+      print "ミス！\n"
+    end
+
+  end
+
+  if player.hp <= 0
+    print player.name + "は死んでしまった…。\n"
+  else
+    print mob.name + "を倒した！\n"
+  end
+
+end
+
 # メイン
 def main
 
   player = Charactor.new
   player.name = "太郎"
 
-  menuitem = ["移動", "スキル", "アイテム", "装備"]
+  menuitem = ["移動", "スキル", "アイテム", "戦闘テスト", "装備"]
 
   while true
     show_status(player)
@@ -57,6 +113,8 @@ def main
         player.map = map
         print getmap(map)['name']+"に移動しました。\n"
       end
+    when "戦闘テスト"
+      battle(player)
     else
       if val != nil 
         print val + "\n"
