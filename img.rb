@@ -23,8 +23,8 @@ def printimg(file)
   end
 end
 
-ARGV.each do |file|
-  printimg file
-  puts "---"
-end
+#ARGV.each do |file|
+#  printimg file
+#  puts ""
+#end
 
