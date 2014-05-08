@@ -1,10 +1,16 @@
 [
-  { "id" : 1, "north" : null, "south" : null, "west" : null, "east" :    2, "name" : "西の湿原"   },
-  { "id" : 2, "north" : null, "south" : null, "west" :    1, "east" :    3, "name" : "小さな森"   },
-  { "id" : 3, "north" :    4, "south" :    5, "west" :    2, "east" : null, "name" : "野道"       },
-  { "id" : 4, "north" :    6, "south" :    3, "west" : null, "east" : null, "name" : "静かな草原" },
-  { "id" : 5, "north" :    3, "south" : null, "west" : null, "east" : null, "name" : "池のほとり" },
-  { "id" : 6, "north" : null, "south" :    4, "west" : null, "east" : null, "name" : "廃村の入口" },
-  { "id" : 7, "north" : null, "south" :    2, "west" : null, "east" :    4, "name" : "暗い木立ち" },
-  { "id" : 7, "north" : null, "south" :    6, "west" : null, "east" : null, "name" : "廃村"       }
+  { "id" :    1, "north" : null, "south" : null, "west" : null, "east" :    2, "name" : "西の湿原"       },
+  { "id" :    2, "north" : null, "south" :    9, "west" :    1, "east" : null, "name" : "小さな森"       },
+  { "id" :    3, "north" :    4, "south" :    5, "west" : null, "east" :   10, "name" : "野道"           },
+  { "id" :    4, "north" :    6, "south" :    3, "west" :    7, "east" : null, "name" : "静かな草原"     },
+  { "id" :    5, "north" :    3, "south" : null, "west" :    9, "east" : null, "name" : "池のほとり"     },
+  { "id" :    6, "north" :    8, "south" :    4, "west" : null, "east" : null, "name" : "廃村の入口"     },
+  { "id" :    7, "north" : null, "south" : null, "west" : null, "east" :    4, "name" : "暗い木立ち"     },
+  { "id" :    8, "north" : null, "south" :    6, "west" : null, "east" : null, "name" : "廃村"           },
+  { "id" :    9, "north" :    2, "south" : null, "west" : null, "east" :    5, "name" : "腐った桟橋"     },
+  { "id" :   10, "north" : null, "south" : null, "west" :    3, "east" :   11, "name" : "小人街道(西)"   },
+  { "id" :   11, "north" :   12, "south" :   13, "west" :   10, "east" : null, "name" : "小人街道(東)"   },
+  { "id" :   12, "north" : null, "south" :   11, "west" : null, "east" : null, "name" : "蔦だらけの納屋" },
+  { "id" :   13, "north" :   11, "south" : null, "west" : null, "east" : null, "name" : "荒れた畑"       },
+  { "id" : 9999, "north" : null, "south" : null, "west" : null, "east" : null, "name" : "名もなき地"     }
 ]
